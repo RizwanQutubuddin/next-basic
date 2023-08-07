@@ -7,13 +7,13 @@ export default function StudentList() {
     { id: 3, name: "Umar" },
     { id: 4, name: "Huda" },
   ];
-  console.log(studentlist);
+  console.log("studentlist", studentlist);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>Student List</h1>
       <ul>
         {studentlist.map((item) => (
-          <li>
+          <li key={item.id}>
             <Link href={"/studentlist/" + item.id}>{item.name}</Link>
           </li>
         ))}

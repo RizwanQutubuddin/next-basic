@@ -3,7 +3,7 @@ const productlist = async () => {
   let data = await fetch("https://dummyjson.com/products");
   data = await data.json();
 
-  console.log(data.products);
+  console.log("products", data.products);
   return data.products;
 };
 export default async function ProductListServerSide() {
@@ -14,7 +14,7 @@ export default async function ProductListServerSide() {
       <h1>Product List</h1>
       <ul>
         {products.map((item) => (
-          <li>
+          <li key={item.id}>
             Title : {item.title} <Button title={item.title} />
           </li>
         ))}
