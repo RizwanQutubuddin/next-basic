@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       { source: "/about", destination: "/", permanent: false },
       { source: "/admin", destination: "/", permanent: false },
-      { source: "/users/:userid", destination: "/", permanent: true },
+      // { source: "/users/:userid", destination: "/", permanent: true },
     ];
   },
   images: {

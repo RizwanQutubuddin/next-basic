@@ -1,4 +1,12 @@
-import getUsers from "@/../services/getUsers";
+// import getUsers from "@/../services/getUsers"; //*case1
+
+//== api start ==
+async function getUsers() {
+  let users = await fetch("http://localhost:3000/api/users");
+  users = await users.json();
+  return users;
+}
+//== api end ==
 
 export default async function Page({ params }) {
   let users = await getUsers();
@@ -9,12 +17,12 @@ export default async function Page({ params }) {
       <h3>User Datails</h3>
       <h4>Name : {user.name}</h4>
       <h4>Email : {user.email}</h4>
-      <h4>Website : {user.website}</h4>
-      <h4>Phone : {user.phone}</h4>
     </main>
   );
 }
 
+/* 
+//*case1
 export async function generateStaticParams() {
   const getUserList = getUsers();
   const users = await getUserList;
@@ -22,4 +30,4 @@ export async function generateStaticParams() {
     userId: user.id.toString(),
     userName: user.name.toString(),
   }));
-}
+}*/
